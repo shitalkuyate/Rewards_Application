@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: red; /* Set the background color to red */
+  color: white;          /* Optional: Change text color for contrast */
+  padding: 10px;  
+}
+
+.header-left img {
+  height: 40px;
+}
+.header-right .icon {
+  margin-left: 15px;
+  height: 24px;
+  cursor: pointer;
+}

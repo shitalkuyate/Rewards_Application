@@ -1,0 +1,45 @@
+<div class="content contentstyle col-md-12" >
+  <div class="row">
+    <!-- Empty column to take up space on the left -->
+    <div class="col-md-6"></div>
+  
+    <!-- Search bar and button on the right -->
+    <div class="col-md-3 d-flex justify-content-end">
+      <input type="text" placeholder="Search items..." class="form-control me-2" />
+      <button class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="left-panel">
+      <h3>Categories</h3>
+      <ul>
+        <li>Category 1</li>
+        <li>Category 2</li>
+        <li>Category 3</li>
+      </ul>
+    </div>
+    <div class="right-panel">
+      <div class="sort-section">
+        <button (click)="toggleSort()">Sort</button>
+        <div class="sort-options" *ngIf="showSortOptions">
+          <button (click)="sortItems('asc')">A to Z</button>
+          <button (click)="sortItems('desc')">Z to A</button>
+        </div>
+      </div>
+    
+      <div class="item-list">
+        <div *ngFor="let item of items" class="item-card">
+          <img src="item.display_img_url || placeholderImage"  alt="Item Image" />
+          <h4>{{ item.name }}</h4>
+          <p>Points: {{ item.points }}</p>
+          <p *ngIf="item.quantity > 0 && item.quantity <= item.low_quantity">
+            On High Demand (Only {{ item.quantity }} )
+          <!--  On High Demand (Only {{ item.quantity }} rewards left)-->
+          </p>
+          <p *ngIf="item.quantity === 0">Out of Stock</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
